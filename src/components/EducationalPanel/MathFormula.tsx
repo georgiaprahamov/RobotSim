@@ -13,6 +13,8 @@ export const MathFormula: React.FC<MathFormulaProps> = ({ math, block = false, c
       return katex.renderToString(math, {
         displayMode: block,
         throwOnError: false,
+        strict: false,
+        trust: true,
       });
     } catch {
       return math;

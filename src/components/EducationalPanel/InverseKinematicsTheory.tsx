@@ -37,7 +37,7 @@ export const InverseKinematicsTheory: React.FC<InverseKinematicsTheoryProps> = (
           The base joint rotates around the vertical Y-axis to aim the arm plane directly toward the target projection on the ground:
         </p>
         <div className="bg-dark-900/90 rounded p-2 border border-white/5 text-[11px]">
-          <MathFormula math="\theta_1 = \operatorname{atan2}(z_t, x_t)" block />
+          <MathFormula math="\theta_1 = \text{atan2}(z_t, x_t)" block />
           <MathFormula math="r = \sqrt{x_t^2 + z_t^2}" block />
         </div>
       </div>
@@ -82,8 +82,8 @@ export const InverseKinematicsTheory: React.FC<InverseKinematicsTheoryProps> = (
           Step 4: Shoulder Angle (\theta_2)
         </h4>
         <div className="bg-dark-900/90 rounded p-2 border border-white/5 text-[11px]">
-          <MathFormula math="\alpha = \operatorname{atan2}(\Delta y, r)" block />
-          <MathFormula math="\beta = \operatorname{atan2}(a_3 \sin\theta_3, a_2 + a_3 \cos\theta_3)" block />
+          <MathFormula math="\alpha = \text{atan2}(\Delta y, r)" block />
+          <MathFormula math="\beta = \text{atan2}(a_3 \sin\theta_3, a_2 + a_3 \cos\theta_3)" block />
           <MathFormula math="\theta_2 = \alpha - \beta" block />
         </div>
       </div>

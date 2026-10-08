@@ -179,7 +179,7 @@ $$T_i = \begin{bmatrix}
 Given target position $\mathbf{P}_t = (X_t, Y_t, Z_t)$:
 
 1. **Base Yaw Angle ($\theta_1$):**
-   $$\theta_1 = \operatorname{atan2}(Z_t, X_t)$$
+   $$\theta_1 = \text{atan2}(Z_t, X_t)$$
    $$r = \sqrt{X_t^2 + Z_t^2}$$
 
 2. **Distance in Sagittal Arm Plane ($D$):**
@@ -194,8 +194,8 @@ Given target position $\mathbf{P}_t = (X_t, Y_t, Z_t)$:
    $$\theta_3 = \pm \arccos(\cos\theta_3) \quad \begin{cases} + \implies \text{Elbow-Up} \\ - \implies \text{Elbow-Down} \end{cases}$$
 
 4. **Shoulder Pitch Angle ($\theta_2$):**
-   $$\alpha = \operatorname{atan2}(\Delta Y, r)$$
-   $$\beta = \operatorname{atan2}(a_3 \sin\theta_3, a_2 + a_3 \cos\theta_3)$$
+   $$\alpha = \text{atan2}(\Delta Y, r)$$
+   $$\beta = \text{atan2}(a_3 \sin\theta_3, a_2 + a_3 \cos\theta_3)$$
    $$\theta_2 = \alpha - \beta$$
 
 ---
