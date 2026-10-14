@@ -66,8 +66,8 @@ export const CoordinateAxes3D: React.FC<CoordinateAxes3DProps> = ({
 
       {/* Frame Label */}
       {label && (
-        <Html position={[0, size * 1.1, 0]} center distanceFactor={10}>
-          <div className="px-1.5 py-0.5 rounded bg-slate-900/80 border border-slate-700 text-[10px] font-mono text-cyan-400 whitespace-nowrap shadow pointer-events-none select-none">
+        <Html position={[0, size * 1.05 + 0.02, 0]} center zIndexRange={[100, 0]}>
+          <div className="px-1.5 py-0.5 rounded bg-slate-950/90 border border-cyan-500/30 text-[9px] font-mono font-medium text-cyan-300 whitespace-nowrap shadow-sm pointer-events-none select-none leading-none tracking-tight">
             {label}
           </div>
         </Html>

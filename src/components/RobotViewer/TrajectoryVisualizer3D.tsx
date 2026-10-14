@@ -14,14 +14,14 @@ export const TrajectoryVisualizer3D: React.FC<TrajectoryVisualizer3DProps> = ({
   currentTime,
   visible = true,
 }) => {
-  if (!visible || !plan || plan.points.length < 2) return null;
-
   const points3D: [number, number, number][] = useMemo(() => {
+    if (!plan) return [];
     return plan.points.map((p) => [p.position.x, p.position.y, p.position.z]);
   }, [plan]);
 
   // Current interpolated position on trajectory
   const currentPos = useMemo(() => {
+    if (!plan || plan.points.length === 0) return null;
     const norm = Math.max(0, Math.min(1, currentTime / plan.duration));
     const idx = norm * (plan.points.length - 1);
     const i0 = Math.floor(idx);
@@ -33,6 +33,8 @@ export const TrajectoryVisualizer3D: React.FC<TrajectoryVisualizer3DProps> = ({
 
     return p0.lerp(p1, alpha);
   }, [plan, currentTime]);
+
+  if (!visible || !plan || plan.points.length < 2 || !currentPos) return null;
 
   return (
     <group>

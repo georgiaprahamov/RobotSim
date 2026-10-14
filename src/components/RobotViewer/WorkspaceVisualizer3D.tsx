@@ -11,9 +11,8 @@ export const WorkspaceVisualizer3D: React.FC<WorkspaceVisualizer3DProps> = ({
   robot,
   visible = false,
 }) => {
-  if (!visible) return null;
-
   const pointsGeometry = useMemo(() => {
+    if (!visible) return null;
     const pts = robot.sampleWorkspace(18);
     const positions = new Float32Array(pts.length * 3);
     const colors = new Float32Array(pts.length * 3);
@@ -40,7 +39,9 @@ export const WorkspaceVisualizer3D: React.FC<WorkspaceVisualizer3DProps> = ({
     geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
     return geom;
-  }, [robot]);
+  }, [robot, visible]);
+
+  if (!visible || !pointsGeometry) return null;
 
   return (
     <group>

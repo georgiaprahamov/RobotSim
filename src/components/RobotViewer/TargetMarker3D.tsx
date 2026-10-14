@@ -112,12 +112,12 @@ export const TargetMarker3D: React.FC<TargetMarker3DProps> = ({
         </mesh>
 
         {/* Floating Tooltip Label */}
-        <Html position={[0, 0.12, 0]} center distanceFactor={8}>
+        <Html position={[0, 0.1, 0]} center zIndexRange={[100, 0]}>
           <div
-            className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-medium border shadow-lg backdrop-blur-md whitespace-nowrap transition-all duration-200 pointer-events-none select-none ${
+            className={`px-1.5 py-0.5 rounded-full text-[9px] font-mono font-medium border shadow-md whitespace-nowrap transition-all duration-200 pointer-events-none select-none leading-none tracking-tight ${
               isReachable
-                ? 'bg-cyan-950/80 border-cyan-500/50 text-cyan-300'
-                : 'bg-rose-950/90 border-rose-500/80 text-rose-300 animate-pulse'
+                ? 'bg-cyan-950/85 border-cyan-500/40 text-cyan-300'
+                : 'bg-rose-950/90 border-rose-500/70 text-rose-300 animate-pulse'
             }`}
           >
             {isReachable ? 'Target (Reachable)' : 'Target Unreachable'}
